@@ -33,14 +33,10 @@ def run_test_detection():
     # =========================================================================
     
     # 1. INPUT DATA SOURCE
-    # Options: "table" (Databricks table) or "parquet" (File path)
     DATA_SOURCE_TYPE = "parquet"  
-    
-    # If DATA_SOURCE_TYPE = "table": Specify your Databricks table name
-    #INPUT_TABLE_NAME = "fraud_features"  
-    
+     
     # If DATA_SOURCE_TYPE = "parquet": Specify your workspace/DBFS parquet path
-    INPUT_PARQUET_PATH = "/Workspace/Users/mohamed.c.elshenity@gmail.com/fraud/parquet"
+    INPUT_PARQUET_PATH = "/Workspace/Users/(#user)/fraud/parquet"
     
     # 2. OUTPUT DESTINATION
     # Scored predictions will be saved to this Databricks table
