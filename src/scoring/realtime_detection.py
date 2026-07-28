@@ -30,7 +30,20 @@ def run_realtime_detection():
     model_uri = "models:/fraud_detection_catboost/Production" # or latest version
     predict_udf = mlflow.pyfunc.spark_udf(spark, model_uri=model_uri, result_type="double")
     
-    feature_cols = [...] # Match 20 feature columns
+    feature_cols =[
+        # Numeric / Static
+        "amt", "city_pop", "hour", "day_of_week", "month",
+        # Geospatial
+        "distance", "haversine_distance",
+        # Window / Velocity
+        "txn_count_1h", "txn_count_24h", "avg_amt_24h", "spend_24h",
+        "unique_merchants_24h", "time_since_last_txn",
+        # Lookup / Fraud Rate
+        "category_fraud_rate", "category_txn_count", "merchant_fraud_rate",
+        "merchant_txn_count", "state_fraud_rate",
+        # Categorical
+        "category", "merchant", "state", "gender", "city", "zip", "job",
+    ] # Match 20 feature columns
     
     # 4. Score Transaction Probability & Apply Champion Threshold (0.9980)
     PRODUCTION_THRESHOLD = 0.9980
