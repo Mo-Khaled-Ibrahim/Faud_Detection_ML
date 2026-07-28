@@ -143,7 +143,7 @@ The pipeline runs via two decoupled Databricks Jobs:
 #### Test fraud detection result
 
 <p align="center">
-  <img src="pics/detect_sample.webp" alt="Image" width="500">
+  <img src="pics/detect_sample.png" alt="Image" width="500">
 </p>
 
 ---
