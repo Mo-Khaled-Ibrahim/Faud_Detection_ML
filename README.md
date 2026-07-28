@@ -141,8 +141,9 @@ The pipeline runs via two decoupled Databricks Jobs:
   5. Writes output predictions continuously to destination S3 bucket using streaming checkpoints.
 
 #### Test fraud detection result
+
 <p align="center">
-  <img src="detect_sample.webp" alt="1" width="500"/>
+  <img src="pics/detect_sample.webp" alt="Image" width="500">
 </p>
 
 ---
