@@ -1,4 +1,4 @@
-# 🛡️ Real-Time Fraud Detection System (Databricks & PySpark)
+# Real-Time Fraud Detection System (Databricks & PySpark)
 
 ---
 
