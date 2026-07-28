@@ -82,8 +82,9 @@ Databricks run/
 
 > 📌 **Key Experimental Findings (`notebooks/`)**:
 > Systematic trial runs evaluated SMOTENC vs. native class weighting. The **winning configuration** locked into production is:
-> - **CatBoost Parameters**: 
- - **`scale_pos_weight`**: **`5.0`** 
+
+- **CatBoost Parameters**: 
+    - **`scale_pos_weight`**: **`5.0`** 
     - **`l2_leaf_reg`**: **`15`** 
     - **`depth`**: **`6`**
     - **`learning_rate`**: **`0.03`**
@@ -138,6 +139,11 @@ The pipeline runs via two decoupled Databricks Jobs:
   3. Loads active production model from MLflow Registry via `mlflow.pyfunc.spark_udf`.
   4. Scores transactions in parallel and applies `0.9980` cutoff threshold (`is_fraud_predicted: 1/0`).
   5. Writes output predictions continuously to destination S3 bucket using streaming checkpoints.
+
+#### Test fraud detection result
+<p align="center">
+  <img src="detect_sample.webp" alt="2" width="800"/>
+</p>
 
 ---
 
