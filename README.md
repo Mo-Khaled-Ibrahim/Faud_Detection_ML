@@ -135,14 +135,14 @@ The pipeline runs via two decoupled Databricks Jobs:
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                             DATABRICKS CLOUD                                │
 │                                                                             │
-│  [ PHASE 1: REAL-TIME DETECTION (24/7 Continuous Streaming) ]               │
+│  [ 1: REAL-TIME DETECTION (24/7 Continuous Streaming) ]               │
 │  S3 Raw Bucket ──► PySpark Structured Streaming ──► Feature Engineering     │
 │                                                           │                 │
 │  Alert Output ◄── Cutoff Threshold (>= 0.9980) ◄── MLflow Model UDF        │
 │                                                                             │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │                                                                             │
-│  [ PHASE 2: WEEKLY MODEL RETRAINING (Scheduled Batch Workflow) ]             │
+│  [ 2: WEEKLY MODEL RETRAINING (Scheduled Batch Workflow) ]             │
 │  Historical Delta/S3 ──► Feature Pipeline ──► CatBoost Train ──► MLflow     │
 │                                                                     │       │
 │  MLflow Registry ("Production") ◄───────────────────────────────────┘       │
