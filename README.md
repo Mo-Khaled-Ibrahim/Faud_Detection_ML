@@ -82,19 +82,19 @@ is_fraud      : 0                                        >>>> is it F?
 
 | Module | Function | Description |
 | :--- | :--- | :--- |
-| [static_features.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/features/static_features.py) | `build_static_features(df)` | Casts raw column types, builds timestamp, extracts temporal features (`hour`, `day_of_week`, `month`), and calculates Euclidean distance. |
-| [geospatial_features.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/features/geospatial_features.py) | `build_geospatial_features(df)` | Computes Haversine great-circle distance (in km) between customer and merchant location. |
-| [window_features.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/features/window_features.py) | `build_window_features(df)` | Computes rolling 1h/24h transaction counts, 24h spend totals/averages, unique merchants, and time elapsed since previous transaction per credit card (`cc_num`). |
-| [lookup_features.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/features/lookup_features.py) | `build_lookup_features(df, train_df)` | Target encodes category, merchant, and state risk levels by computing historical fraud rates on training data and left-joining them. |
+| [static_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/static_features.py) | `build_static_features(df)` | Casts raw column types, builds timestamp, extracts temporal features (`hour`, `day_of_week`, `month`), and calculates Euclidean distance. |
+| [geospatial_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/geospatial_features.py) | `build_geospatial_features(df)` | Computes Haversine great-circle distance (in km) between customer and merchant location. |
+| [window_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/window_features.py) | `build_window_features(df)` | Computes rolling 1h/24h transaction counts, 24h spend totals/averages, unique merchants, and time elapsed since previous transaction per credit card (`cc_num`). |
+| [lookup_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/lookup_features.py) | `build_lookup_features(df, train_df)` | Target encodes category, merchant, and state risk levels by computing historical fraud rates on training data and left-joining them. |
 
 ### 2. Model Logic (`src/model/`)
 
 | Module | Function | Description |
 | :--- | :--- | :--- |
-| [train.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/model/train.py) | `train_model(X_train, y_train, X_val, y_val, model_params)` | Prepares CatBoost Pools with categorical columns, configures validation early stopping, and fits the classifier. |
-| [evaluate.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/model/evaluate.py) | `evaluate_model(model, X_test, y_test, threshold)` | Computes ROC-AUC, Precision, Recall, F1-Score, and Confusion Matrix at a given cutoff. |
-| [threshold.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/model/threshold.py) | `find_best_threshold(model, X_val, y_val)` | Sweeps probability space using `TimeSeriesSplit` cross-validation to maximize F1-score. |
-| [shap_explainer.py](file:///g:/CS/ITI/DM%209M%20%28ismalia%29/Ptoject/ITI/fraud/aws_proj/bricks/Databricks%20run/src/model/shap_explainer.py) | `compute_shap_reasons(model, X)` | Computes SHAP values via `TreeExplainer` for model interpretability. |
+| [train.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/model/train.py) | `train_model(X_train, y_train, X_val, y_val, model_params)` | Prepares CatBoost Pools with categorical columns, configures validation early stopping, and fits the classifier. |
+| [evaluate.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/model/evaluate.py) | `evaluate_model(model, X_test, y_test, threshold)` | Computes ROC-AUC, Precision, Recall, F1-Score, and Confusion Matrix at a given cutoff. |
+| [threshold.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/model/threshold.py) | `find_best_threshold(model, X_val, y_val)` | Sweeps probability space using `TimeSeriesSplit` cross-validation to maximize F1-score. |
+| [shap_explainer.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/model/shap_explainer.py) | `compute_shap_reasons(model, X)` | Computes SHAP values via `TreeExplainer` for model interpretability. |
 
 ---
 
