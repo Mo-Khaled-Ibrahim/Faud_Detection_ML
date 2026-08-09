@@ -87,7 +87,7 @@ is_fraud      : 0                                        >>>> is it F?
 | [window_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/window_features.py) | `build_window_features(df)` | Computes rolling 1h/24h transaction counts, 24h spend totals/averages, unique merchants, and time elapsed since previous transaction per credit card (`cc_num`). |
 | [lookup_features.py](https://github.com/Mo-Khaled-Ibrahim/Faud_Detection_ML/tree/ed44df6392390599b6cca1d97127f581d1b276a7/src/features/lookup_features.py) | `build_lookup_features(df, train_df)` | Target encodes category, merchant, and state risk levels by computing historical fraud rates on training data and left-joining them. |
 
-### 2. Model Logic (`src/model/`)
+### 2. Model Logic ([model](src/model/))
 
 | Module | Function | Description |
 | :--- | :--- | :--- |
