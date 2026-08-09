@@ -102,8 +102,7 @@ is_fraud      : 0                                        >>>> is it F?
 
 The pipeline runs via two decoupled Databricks Jobs:
 
-### Job 1: [Scheduled Weekly Retraining](src/retraining/weekly_retrain.py)
-- **File**: `src/retraining/weekly_retrain.py`
+### Job 1: Scheduled [weekly_retrain](src/retraining/weekly_retrain.py)
 - **Schedule**: Weekly Cron (e.g. Every Sunday at 02:00 AM)
 - **What it does**: 
   1. Loads historical data and executes `build_static_features`, `build_window_features`, `build_geospatial_features`, and `build_lookup_features`.
@@ -112,9 +111,8 @@ The pipeline runs via two decoupled Databricks Jobs:
   4. Evaluates performance against test set and logs metrics/confusion matrix to MLflow.
   5. Registers and promotes the model in **MLflow Model Registry** under `fraud_detection_catboost`.
 
-### Job 2: 24/7 Real-Time Detection
-- **File**: `src/scoring/realtime_detection.py`
-- **Schedule**: Continuous PySpark Streaming (24/7)
+### Job 2: 24/7 [realTime_detection](src/scoring/realtime_detection.py)
+- **Listen**: Continuous PySpark Streaming (24/7)
 - **What it does**:
   1. Listens continuously to incoming raw transaction parquet files landing on S3 via `spark.readStream`.
   2. Applies feature engineering pipeline on incoming stream.
