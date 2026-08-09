@@ -102,7 +102,7 @@ is_fraud      : 0                                        >>>> is it F?
 
 The pipeline runs via two decoupled Databricks Jobs:
 
-### Job 1: Scheduled Weekly Retraining
+### Job 1: [Scheduled Weekly Retraining](src/retraining/weekly_retrain.py)
 - **File**: `src/retraining/weekly_retrain.py`
 - **Schedule**: Weekly Cron (e.g. Every Sunday at 02:00 AM)
 - **What it does**: 
