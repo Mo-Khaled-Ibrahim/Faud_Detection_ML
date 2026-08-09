@@ -111,7 +111,7 @@ The pipeline runs via two decoupled Databricks Jobs:
   4. Evaluates performance against test set and logs metrics/confusion matrix to MLflow.
   5. Registers and promotes the model in **MLflow Model Registry** under `fraud_detection_catboost`.
 
-### Job 2: 24/7 [realTime_detection](src/scoring/realtime_detection.py)
+### Job 2: 24/7 [realtime_detection](src/scoring/realtime_detection.py)
 - **Listen**: Continuous PySpark Streaming (24/7)
 - **What it does**:
   1. Listens continuously to incoming raw transaction parquet files landing on S3 via `spark.readStream`.
